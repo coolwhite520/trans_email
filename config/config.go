@@ -7,7 +7,7 @@ import (
 )
 
 func ParseConfigEmails() ([]string,error) {
-	cfg, err := goconfig.LoadConfigFile("./configdata/emails.ini")
+	cfg, err := goconfig.LoadConfigFile("./emailconfig/emails.ini")
 	if err != nil {
 		log.Println("加载配置失败:" + err.Error())
 		return nil, err

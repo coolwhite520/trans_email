@@ -16,6 +16,6 @@ RUN CGO_ENABLED=0 GOOS=linux  GOARCH=amd64  go build
 FROM busybox:glibc
 COPY --from=stage-build /opt/emailproject/email /opt/email
 COPY --from=stage-build /opt/emailproject/template.html /opt/template.html
-VOLUME ["/opt/configdata"]
+VOLUME ["/opt/emailconfig"]
 CMD ["/opt/email"]
 
