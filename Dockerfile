@@ -16,6 +16,7 @@ RUN CGO_ENABLED=0 GOOS=linux  GOARCH=amd64  go build
 FROM ubuntu:20.04
 RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends ca-certificates curl
+ENV TZ Asia/Shanghai
 COPY --from=stage-build /opt/emailproject/email /opt/email
 COPY --from=stage-build /opt/emailproject/template.html /opt/template.html
 VOLUME ["/opt/emailconfig"]
