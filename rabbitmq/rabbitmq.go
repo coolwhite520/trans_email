@@ -24,7 +24,7 @@ func InitRabbitmq() {
 	for  i := 0; i < 100; i++ {
 		time.Sleep(time.Second * 1)
 		var err error
-		url := fmt.Sprintf("amqp://%s:%s@127.0.0.1:5672/", RABBITMQ_DEFAULT_USER, RABBITMQ_DEFAULT_PASS)
+		url := fmt.Sprintf("amqp://%s:%s@trans_admin_rabbitmq:5672/", RABBITMQ_DEFAULT_USER, RABBITMQ_DEFAULT_PASS)
 		conn, err = amqp.Dial(url)
 		if err != nil {
 			log.Println("无法链接rabbitmq服务:" + err.Error())

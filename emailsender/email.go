@@ -28,7 +28,7 @@ func RenderHtml(ex structs.ActivationEx) ([]byte, error) {
 	renderMap["SupportLangList"] = ex.SupportLangList
 	renderMap["AdminName"] = ex.AdminName
 	renderMap["Mark"] = ex.Mark
-	renderMap["CreateDate"] = time.Unix(ex.CreatedAt, 0).Format(timeLayout) //设置时间戳 使用模板格式化为日期字符串
+	renderMap["CreateDate"] = time.Unix(ex.CreatedAt, 0).Local().Format(timeLayout) //设置时间戳 使用模板格式化为日期字符串
 	err = t1.Execute(&s, renderMap)
 	if err != nil {
 		return nil , err
