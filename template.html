@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>授权平台</title>
+    <style>
+        .content {
+            font-style: italic;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <b>授权版本：</b>
+    {{ if eq .EditionType "Test" }}
+    <span class="content">测试版</span>
+    {{ else }}
+    <span class="content">正式版</span>
+    {{end}}
+</div>
+<div>
+    <b>被授权方：</b>
+    <span class="content">{{.UserName}}</span>
+</div>
+<div>
+    <b>授权有效期：</b>
+    <span class="content">{{.Expired}} 个月</span>
+</div>
+<div>
+    <b>支持的语言：</b>
+    {{range .SupportLangList}}
+    <span class="content">{{.CnName}}&nbsp;</span>
+    {{end}}
+</div>
+<div>
+    <b>备注：</b>
+    <span class="content">{{.Mark}}</span>
+</div>
+<div>
+    <b>管理员：</b>
+    <span class="content">{{.AdminName}}</span>
+</div>
+<div>
+    <b>创建时间：</b>
+    <span class="content">{{.CreateDate}}</span>
+</div>
+</body>
+</html>
