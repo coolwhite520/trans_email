@@ -1,7 +1,7 @@
 package rabbitmq
 
 import (
-	"email/email"
+	"email/emailsender"
 	"email/structs"
 	"encoding/json"
 	"fmt"
@@ -68,7 +68,7 @@ func Consume() {
 				fmt.Println(err)
 				continue
 			}
-			err = email.SendEmail(a)
+			err = emailsender.SendEmail(a)
 			if err != nil {
 				fmt.Println(err)
 				continue

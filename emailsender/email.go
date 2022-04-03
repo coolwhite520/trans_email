@@ -1,4 +1,4 @@
-package email
+package emailsender
 
 import (
 	bytes2 "bytes"
