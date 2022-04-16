@@ -28,15 +28,15 @@ func RenderHtml(ex structs.ActivationEx) ([]byte, error) {
 	renderMap["SupportLangList"] = ex.SupportLangList
 	renderMap["AdminName"] = ex.AdminName
 	renderMap["Mark"] = ex.Mark
+	renderMap["Sn"] = ex.Sn
 	//location, err := time.LoadLocation("Asia/Shanghai")
 	renderMap["CreateDate"] = time.Unix(ex.CreatedAt, 0).Add(time.Hour * 8).Format(timeLayout) //设置时间戳 使用模板格式化为日期字符串
 	err = t1.Execute(&s, renderMap)
 	if err != nil {
-		return nil , err
+		return nil, err
 	}
 	return s.Bytes(), nil
 }
-
 
 func SendEmail(ex structs.ActivationEx) error {
 	// 简单设置 log 参数
@@ -72,4 +72,3 @@ func SendEmail(ex structs.ActivationEx) error {
 	log.Println("send successfully ... ")
 	return nil
 }
-
